@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import type { Property } from '../../types/property'
+import type { RootState } from '../../store/store'
 
 type PropertyState = {
   items: Property[]
@@ -17,6 +18,15 @@ export const fetchProperties = createAsyncThunk(
   'properties/fetchProperties',
   async () => {
     const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const data = await response.json()
+    return data
+  }
+)
+
+export const fetchPropertyById = createAsyncThunk(
+  'properties/fetchPropertyById',
+  async (id: string) => {
+    const response = await fetch(`https://crud-property.onschoolbootcamp.edu.vn/properties/${id}`)
     const data = await response.json()
     return data
   }
@@ -42,5 +52,7 @@ const propertySlice = createSlice({
       })
   },
 })
+
+export const selectPropertyItems = (state: RootState) => state.properties.items
 
 export default propertySlice.reducer

@@ -7,4 +7,5 @@ export type Property = {
   beds: number
   baths: number
   status: 'For Sale' | 'For Rent'
+  description?: string
 }
