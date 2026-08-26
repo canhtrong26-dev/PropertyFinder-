@@ -1,13 +1,139 @@
-$primary-color: #0061E0;
-$text-color: #282828;
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #ffffff;
-    color: $text-color;
-}
+@use 'variables' as *;
+@use 'mixins' as *;
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.theme-light {
+    --background-color: #{$light-background};
+    --surface-color: #{$light-surface};
+    --text-color: #{$light-text};
+    --border-color: #{$light-border};
+    --primary-color: #{$primary-color};
+}
+
+.theme-dark {
+    --background-color: #{$dark-background};
+    --surface-color: #{$dark-surface};
+    --text-color: #{$dark-text};
+    --border-color: #{$dark-border};
+    --primary-color: #{$primary-color};
+}
+
+.theme-light,
+.theme-dark {
+    min-height: 100vh;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+header {
+    .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 24px;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .header-logo {
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .header-toggle {
+        @include flex-center;
+        padding: 6px 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background-color: var(--surface-color);
+        color: var(--text-color);
+        cursor: pointer;
+    }
+
+    nav a {
+        margin-right: 12px;
+        color: var(--text-color);
+    }
+}
+
+.admin-layout {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+
+    .admin-sidebar {
+        width: 220px;
+        flex-shrink: 0;
+        @include card;
+
+        a {
+            display: block;
+            padding: 6px 0;
+            color: var(--text-color);
+        }
+    }
+
+    .admin-content {
+        flex: 1;
+        @include card;
+    }
+
+    @include breakpoint(mobile) {
+        flex-direction: column;
+
+        .admin-sidebar {
+            width: 100%;
+        }
+    }
+}
+
+.login-page {
+    max-width: 360px;
+    margin: 48px auto;
+    @include card;
+
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 12px;
+
+        input {
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        button {
+            padding: 8px;
+            border: none;
+            border-radius: 6px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            cursor: pointer;
+        }
+    }
+}
+
+.login-error {
+    margin-top: 12px;
+    color: #d32f2f;
 }
