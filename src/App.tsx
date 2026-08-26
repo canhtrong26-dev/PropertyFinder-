@@ -1,4 +1,8 @@
+import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import type { RootState, AppDispatch } from './store/store'
+import { favoriteToggled } from './features/properties/favoritesSlice'
 import MainLayout from './layouts/MainLayout'
 import HomePage from './pages/HomePage'
 import PropertyListPage from './pages/PropertyListPage'
@@ -11,6 +15,13 @@ import AdminPropertyFormPage from './pages/admin/AdminPropertyFormPage'
 import NotFoundPage from './pages/NotFoundPage'
 
 function App() {
+  const dispatch = useDispatch<AppDispatch>()
+  const favoriteIds = useSelector((state: RootState) => state.favorites.ids)
+
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favoriteIds))
+  }, [favoriteIds])
+
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>

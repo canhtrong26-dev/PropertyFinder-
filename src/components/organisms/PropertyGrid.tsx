@@ -9,7 +9,7 @@ function PropertyGrid({ properties }: PropertyGridProps) {
   return (
     <div>
       {properties.map((property) => (
-        <PropertyCard key={property.id} />
+        <PropertyCard key={property.id} property={property} />
       ))}
     </div>
   )

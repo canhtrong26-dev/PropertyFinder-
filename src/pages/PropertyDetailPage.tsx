@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectPropertyItems, fetchPropertyById } from '../features/properties/propertySlice'
 import type { AppDispatch } from '../store/store'
+import { favoriteToggled } from '../features/properties/favoritesSlice'
 
 function PropertyDetailPage() {
   const { id } = useParams()
@@ -48,6 +49,9 @@ return (
       <div>
         <p>{property.description}</p>
       </div>
+      <button onClick={() => dispatch(favoriteToggled(String(property.id)))}>
+        ♥ Favorite
+      </button>
       <div>
         <h2>Location</h2>
         <div style={{ width: '100%', height: '300px', background: '#e0e0e0' }}>
