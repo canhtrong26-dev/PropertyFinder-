@@ -1,0 +1,13 @@
+$primary-color: #0061E0;
+$text-color: #282828;
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+    color: $text-color;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
