@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import useUI from '../hooks/useUI'
 
 function Header() {
@@ -7,7 +7,9 @@ function Header() {
   return (
     <header>
       <div className="header-container">
-        <div className="header-logo">PropertyFinder</div>
+        <Link to="/" className="header-logo">
+          PropertyFinder
+        </Link>
         <nav>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/properties">Properties</NavLink>

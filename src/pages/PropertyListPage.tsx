@@ -15,21 +15,23 @@ function PropertyListPage() {
   }, [])
 
   if (loading) {
-    return <div>Đang tải...</div>
+    return <div className="page">Đang tải...</div>
   }
 
   if (error) {
     return (
-      <div>
+      <div className="page">
         <p>{error}</p>
-        <button onClick={() => dispatch(fetchProperties())}>Retry</button>
+        <button className="btn-add" onClick={() => dispatch(fetchProperties())}>
+          Retry
+        </button>
       </div>
     )
   }
 
   return (
-    <div>
-      <h1>Property List Page</h1>
+    <div className="page">
+      <h1 className="page-title">Property Listings</h1>
       <PropertyGrid properties={items} />
     </div>
   )

@@ -3,7 +3,11 @@ type PriceTagProps = {
 }
 
 function PriceTag({ price }: PriceTagProps) {
-  return <span>{price}</span>
+  return (
+    <span className="property-card-price">
+      {typeof price === 'number' ? `$${price.toLocaleString('en-US')}` : 'Liên hệ'}
+    </span>
+  )
 }
 
 export default PriceTag

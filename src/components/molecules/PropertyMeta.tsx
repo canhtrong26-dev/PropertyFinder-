@@ -8,7 +8,7 @@ type PropertyMetaProps = {
 
 function PropertyMeta({ beds, baths }: PropertyMetaProps) {
   return (
-    <div>
+    <div className="property-card-meta">
       <div>
         <Icon name="bed" />
         <Text variant="caption">{`${beds} beds`}</Text>

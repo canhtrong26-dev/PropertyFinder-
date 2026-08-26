@@ -1,32 +1,27 @@
-# React + TypeScript + Vite
+# PropertyFinder v2.0
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Mô tả
+PropertyFinder là ứng dụng tìm kiếm bất động sản SPA được xây dựng bằng React + TypeScript,
+mô phỏng các website thực tế như Zillow, Batdongsan. Cho phép người dùng tìm kiếm,
+lọc, xem chi tiết và lưu yêu thích các bất động sản.
 
-Currently, two official plugins are available:
+## Tính năng chính
+- Property Listing: Xem danh sách bất động sản với filter nâng cao
+- Property Detail: Xem chi tiết từng căn nhà với map placeholder
+- Favorites: Lưu nhà yêu thích, persist localStorage
+- Admin CRUD: Thêm/sửa/xóa bất động sản
+- Auth: Đăng nhập admin với protected routes
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
+- React 19 + TypeScript
+- Redux Toolkit (state management)
+- React Router v7
+- Context API + useReducer (UI state)
+- Sass (theme, variables, mixins)
+- Vite
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Hướng dẫn chạy local
+1. Clone repo
+2. Cài dependencies: `npm install`
+3. Chạy dev server: `npm run dev`
+4. Mở trình duyệt: http://localhost:5173

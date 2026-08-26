@@ -18,9 +18,35 @@
     @media (max-width: $breakpoint-mobile) {
       @content;
     }
+  } @else if $size == tablet {
+    @media (max-width: $breakpoint-tablet) {
+      @content;
+    }
   } @else {
     @media (min-width: $size) {
       @content;
     }
+  }
+}
+
+@mixin container {
+  width: 100%;
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@mixin primary-button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: $primary-color;
+  color: $pure-white;
+  font-family: $font-body;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #004fb8;
   }
 }

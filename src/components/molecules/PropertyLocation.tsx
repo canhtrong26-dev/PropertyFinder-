@@ -5,7 +5,7 @@ type PropertyLocationProps = { region: string }
 
 function PropertyLocation({ region }: PropertyLocationProps) {
   return (
-    <div>
+    <div className="property-card-location">
       <Icon name="location" />
       <Text variant="caption">{region}</Text>
     </div>

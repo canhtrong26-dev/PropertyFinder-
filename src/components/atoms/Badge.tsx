@@ -3,7 +3,9 @@ type BadgeProps = {
 }
 
 function Badge({ status }: BadgeProps) {
-  return <span>{status}</span>
+  const className = status === 'For Rent' ? 'badge badge-for-rent' : 'badge'
+
+  return <span className={className}>{status}</span>
 }
 
 export default Badge

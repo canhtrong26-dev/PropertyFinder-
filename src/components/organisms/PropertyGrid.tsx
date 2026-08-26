@@ -7,7 +7,7 @@ type PropertyGridProps = {
 
 function PropertyGrid({ properties }: PropertyGridProps) {
   return (
-    <div>
+    <div className="property-grid">
       {properties.map((property) => (
         <PropertyCard key={property.id} property={property} />
       ))}
