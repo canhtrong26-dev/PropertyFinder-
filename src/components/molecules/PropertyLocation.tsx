@@ -1,11 +1,13 @@
 import Icon from '../atoms/Icon'
 import Text from '../atoms/Text'
 
-function PropertyLocation() {
+type PropertyLocationProps = { region: string }
+
+function PropertyLocation({ region }: PropertyLocationProps) {
   return (
     <div>
       <Icon name="location" />
-      <Text variant="location">location</Text>
+      <Text variant="caption">{region}</Text>
     </div>
   )
 }

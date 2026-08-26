@@ -1,7 +1,9 @@
+import PropertyForm from '../../components/organisms/PropertyForm'
+
 function AdminPropertyFormPage() {
   return (
     <div>
-      <h1>Admin Property Form</h1>
+      <PropertyForm />
     </div>
   )
 }

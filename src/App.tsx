@@ -1,8 +1,7 @@
-import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import type { RootState, AppDispatch } from './store/store'
-import { favoriteToggled } from './features/properties/favoritesSlice'
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import type { RootState } from './store/store'
 import MainLayout from './layouts/MainLayout'
 import HomePage from './pages/HomePage'
 import PropertyListPage from './pages/PropertyListPage'
@@ -15,7 +14,6 @@ import AdminPropertyFormPage from './pages/admin/AdminPropertyFormPage'
 import NotFoundPage from './pages/NotFoundPage'
 
 function App() {
-  const dispatch = useDispatch<AppDispatch>()
   const favoriteIds = useSelector((state: RootState) => state.favorites.ids)
 
   useEffect(() => {
@@ -33,6 +31,8 @@ function App() {
         <Route path="admin">
           <Route index element={<AdminDashboardPage />} />
           <Route path="properties" element={<AdminPropertyListPage />} />
+          <Route path="properties/new" element={<AdminPropertyFormPage />} />
+          <Route path="properties/:id/edit" element={<AdminPropertyFormPage />} />
           <Route path="properties/form" element={<AdminPropertyFormPage />} />
         </Route>
       </Route>

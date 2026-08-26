@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit'
 import type { Property } from '../../types/property'
 import type { RootState } from '../../store/store'
 
@@ -35,7 +36,20 @@ export const fetchPropertyById = createAsyncThunk(
 const propertySlice = createSlice({
   name: 'properties',
   initialState,
-  reducers: {},
+  reducers: {
+  propertyAdded: (state, action: PayloadAction<Property>) => {
+    state.items.push(action.payload)
+  },
+  propertyUpdated: (state, action: PayloadAction<Property>) => {
+    const index = state.items.findIndex((item) => item.id === action.payload.id)
+    if (index !== -1) {
+      state.items[index] = action.payload
+    }
+  },
+  propertyRemoved: (state, action: PayloadAction<number>) => {
+    state.items = state.items.filter((item) => item.id !== action.payload)
+  },
+},
   extraReducers: (builder) => {
     builder
       .addCase(fetchProperties.pending, (state) => {
@@ -53,6 +67,6 @@ const propertySlice = createSlice({
   },
 })
 
+export const { propertyAdded, propertyUpdated, propertyRemoved } = propertySlice.actions
 export const selectPropertyItems = (state: RootState) => state.properties.items
-
 export default propertySlice.reducer

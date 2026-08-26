@@ -1,9 +1,11 @@
 import Badge from '../atoms/Badge'
 
-function PropertyStatusBadge() {
+type PropertyStatusBadgeProps = { status: string }
+
+function PropertyStatusBadge({ status }: PropertyStatusBadgeProps) {
   return (
     <div>
-      <Badge status="status" />
+      <Badge status={status} />
     </div>
   )
 }
