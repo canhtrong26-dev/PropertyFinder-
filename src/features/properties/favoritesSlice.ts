@@ -6,8 +6,21 @@ type FavoritesState = {
   ids: string[]
 }
 
+const loadFavoriteIds = (): string[] => {
+  const stored = localStorage.getItem('favorites')
+  if (!stored) {
+    return []
+  }
+  try {
+    const parsed = JSON.parse(stored)
+    return Array.isArray(parsed) ? parsed.map(String) : []
+  } catch {
+    return []
+  }
+}
+
 const initialState: FavoritesState = {
-  ids: [],
+  ids: loadFavoriteIds(),
 }
 
 const favoritesSlice = createSlice({

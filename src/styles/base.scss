@@ -457,6 +457,12 @@ footer {
     color: var(--muted-color);
 }
 
+.about-text {
+    max-width: 720px;
+    color: var(--muted-color);
+    line-height: 1.7;
+}
+
 .admin-layout {
     @include container;
     display: flex;
