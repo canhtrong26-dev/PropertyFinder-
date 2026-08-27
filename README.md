@@ -26,3 +26,4 @@ lọc, xem chi tiết và lưu yêu thích các bất động sản.
 3. Chạy dev server: `npm run dev`
 4. Mở trình duyệt: http://localhost:5173
 5. Link demo: https://property-finder-omega.vercel.app/
+6.
